@@ -1,3 +1,5 @@
+# Important: change the value of profilesPath in line 52
+
 # Define the log file path
 $logFilePath = "C:\logs\RegistryScriptLog.txt"
 
@@ -48,7 +50,7 @@ if (-not (Test-Path $profilesPath)) {
 # Set the multi-string value VHDLocations
 if (-not (Get-ItemProperty -Path $profilesPath -Name "VHDLocations" -ErrorAction SilentlyContinue)) {
     try {
-        new-ItemProperty -Path $profilesPath -Name "VHDLocations" -Value "\\avd365storage.file.core.windows.net\myuserprofiles" -PropertyType MultiString
+        new-ItemProperty -Path $profilesPath -Name "VHDLocations" -Value "xxxxxx" -PropertyType MultiString
         LogMessage "VHDLocations multi-string value set."
     } catch {
         LogMessage "Failed to set VHDLocations value: $_"
